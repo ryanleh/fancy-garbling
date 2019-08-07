@@ -7,6 +7,7 @@ use scuttlebutt::{Block, AES_HASH};
 
 /// The core wire-label type.
 #[derive(Debug, Clone, PartialEq)]
+#[cfg_attr(feature = "serde1", derive(serde::Serialize, serde::Deserialize))]
 pub enum Wire {
     /// Representation of a `mod-2` wire.
     Mod2 {

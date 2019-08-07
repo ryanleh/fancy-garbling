@@ -7,9 +7,9 @@ use crate::fancy::{BinaryBundle, CrtBundle, Fancy, FancyInput, HasModulus};
 use crate::informer::InformerVal;
 use itertools::Itertools;
 use std::collections::HashMap;
-
 /// The index and modulus of a gate in a circuit.
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg_attr(feature = "serde1", derive(serde::Serialize, serde::Deserialize))]
 pub struct CircuitRef {
     pub(crate) ix: usize,
     pub(crate) modulus: u16,
@@ -29,6 +29,7 @@ impl HasModulus for CircuitRef {
 
 /// Static representation of the type of computation supported by fancy garbling.
 #[derive(Clone, Debug, PartialEq)]
+#[cfg_attr(feature = "serde1", derive(serde::Serialize, serde::Deserialize))]
 pub struct Circuit {
     pub(crate) gates: Vec<Gate>,
     pub(crate) gate_moduli: Vec<u16>,
@@ -41,6 +42,7 @@ pub struct Circuit {
 
 /// The most basic types of computation supported by fancy garbling.
 #[derive(Clone, Debug, PartialEq)]
+#[cfg_attr(feature = "serde1", derive(serde::Serialize, serde::Deserialize))]
 pub(crate) enum Gate {
     GarblerInput {
         id: usize,

@@ -22,6 +22,7 @@ use std::rc::Rc;
 ///
 /// Uses `Evaluator` under the hood to actually implement the evaluation.
 #[derive(Debug)]
+#[cfg_attr(feature = "serde1", derive(serde::Serialize, serde::Deserialize))]
 pub struct GarbledCircuit {
     blocks: Vec<Block>,
 }
@@ -102,6 +103,7 @@ pub fn garble(c: &mut Circuit) -> Result<(Encoder, GarbledCircuit), GarblerError
 
 /// Encode inputs statically.
 #[derive(Debug)]
+#[cfg_attr(feature = "serde1", derive(serde::Serialize, serde::Deserialize))]
 pub struct Encoder {
     garbler_inputs: Vec<Wire>,
     evaluator_inputs: Vec<Wire>,

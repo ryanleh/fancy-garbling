@@ -16,6 +16,7 @@ doctest = false
 
 [features]
 nightly = ["rand/nightly", "scuttlebutt/nightly"]
+serde1 = ["serde", "scuttlebutt/serde"]
 
 [dependencies]
 base_conversion = { path = "base_conversion" }
@@ -23,6 +24,7 @@ itertools = "0.8.0"
 rand = "0.6.5"
 regex = "1.1.7"
 scuttlebutt = { git = "https://github.com/GaloisInc/scuttlebutt", tag = "0.3.2" }
+serde = { version = "1", features = ["derive"], optional = true } 
 
 [dev-dependencies]
 criterion = "0.2.11"
